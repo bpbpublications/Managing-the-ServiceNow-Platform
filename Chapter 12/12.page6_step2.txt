@@ -1,0 +1,7 @@
+	var size = g_form.getValue('car_size');
+	if(size == 'small'){
+		g_form.removeOption('priority','1');
+		g_form.removeOption('priority','2');
+		g_form.removeOption('priority','3');
+}
+

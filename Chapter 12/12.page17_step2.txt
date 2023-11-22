@@ -1,0 +1,20 @@
+   var ga = new GlideAjax('getCustomerDataAJAX');
+      ga.addParam('sysparm_name', 'getCarWashRequests');
+      ga.addParam('sysparm_customer',g_form.getValue('customer'));
+      ga.getXML(getCustomerData);
+}
+
+function getCustomerData(response) {
+    var answer = response.responseXML.documentElement.getAttribute("answer");
+	if(answer){
+	g_form.addInfoMessage('Customer historical records: \n');
+		var recordsObj = JSON.parse(answer);
+		for (var i = 0; i < recordsObj.length; i++){
+		g_form.addInfoMessage('Record number: ' + recordsObj[i].number + '. State =' + recordsObj[i].state + '. Car type: ' + recordsObj[i].car_type + '. \n' );
+	}
+	}
+					
+	else{
+		g_form.addInfoMessage('Customer has no historical records');
+	}
+}

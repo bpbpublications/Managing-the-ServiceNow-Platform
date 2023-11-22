@@ -1,0 +1,1 @@
+g_form.addInfoMessage(g_scratchpad.carwash_message);

@@ -1,0 +1,14 @@
+if(input){		
+//Using GlideRecord we create a new car wash request record
+var grSubmitCarWash = new GlideRecord('[app_scope]_car_wash_car_wash_request');
+grSubmitCarWash.newRecord();
+grSubmitCarWash.notes = input.carwash_notes;//input.carwash_notes is grabbed from the HTML form using the ng-model directive
+grSubmitCarWash.customer.setValue(userNameId);//Gets the user name for the session and automatically sets on the customer field
+grSubmitCarWash.state = -5;//-5 is the value for Pending state
+grSubmitCarWash.update();
+//We update the data object with the required attributes	
+data.active_jobs = true;
+data.job_number = grSubmitCarWash.number.toString();
+data.job_status = grSubmitCarWash.state.getDisplayValue();	
+gs.addInfoMessage("We have received your request and we are working on it. Your car wash request ticket number is #" + data.job_number);
+	}

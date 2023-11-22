@@ -1,0 +1,3 @@
+c.submit_carwash = function(){
+c.server.update();
+}

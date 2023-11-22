@@ -1,0 +1,3 @@
+answer = (function transformEntry(source) {
+	return "[application_scope].customer";
+})(source);

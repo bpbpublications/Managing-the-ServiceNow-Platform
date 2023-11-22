@@ -1,0 +1,5 @@
+var notes = request.body.data.notes;//Get the notes element from the body of the request
+	var inputs = {};
+	inputs['notes'] = notes; //Add notes to the inputs object	
+        var outputs = sn_fd.FlowAPI.executeSubflow('create_a_car_wash_request', inputs);//Run the subflow.
+	return 'Record ' + outputs.number + ' has been created. The following notes have been appended: ' + notes;//Send back a friendly message with the record number and the notes that were added.

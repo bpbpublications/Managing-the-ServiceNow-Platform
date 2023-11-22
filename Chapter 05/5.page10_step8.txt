@@ -1,0 +1,3 @@
+var myComments = ‘’;
+myComments = ‘The request has been approved. The car will be ready soon.’;
+return myComments;

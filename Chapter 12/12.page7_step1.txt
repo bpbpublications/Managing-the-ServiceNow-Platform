@@ -1,0 +1,9 @@
+var userCount = 0;
+var grUser = new GlideRecord('sys_user');
+grUser.addEncodedQuery('emailLIKE@email.com');
+grUser.query();
+
+while(grUser.next()){
+userCount++;
+gs.info('User: ' + grUser.name);
+}

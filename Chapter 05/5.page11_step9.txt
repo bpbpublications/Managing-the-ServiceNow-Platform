@@ -1,0 +1,3 @@
+var myComments = '';
+myComments = 'Unfortunately we were not able to proceed with the car wash job. Thanks for your understanding.';
+return myComments;

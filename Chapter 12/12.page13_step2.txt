@@ -1,0 +1,6 @@
+	var userId = g_user.userID;
+	var has_support_role = g_user.hasRole('[app_scope] _car_wash.support');
+	if(has_support_role == true && g_form.getValue('assigned_to') ==''){
+		g_form.setValue('assigned_to',userId);
+		g_form.addInfoMessage('The record has been auto-assigned. Save to confirm');
+	}

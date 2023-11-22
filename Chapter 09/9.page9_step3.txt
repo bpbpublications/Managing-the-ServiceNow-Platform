@@ -1,0 +1,15 @@
+var carwashDeepLinkGenerator = new global.MobileDeepLinkGenerator("Request");
+var carwashLink = carwashDeepLinkGenerator.getFormScreenLink('<mobile_screen_sys_id>',current.getTableName(),current.getValue("sys_id"));
+var carwashLayoutGenerator = new global.NotificationLayoutFieldGenerator();
+    var text_01 = 'Job assigned';
+    var text_02 = carwashLayoutGenerator.layoutField(current.getTableName(), current.sys_id, "number");
+    var text_03 = carwashLayoutGenerator.layoutField(current.getTableName(), current.sys_id, "car_type");
+
+    var json = {
+        "Link": carwashLink,
+        "Layout": {
+            "Status": text_01,
+            "Identifier": text_02,
+            "Description": text_03
+        }
+    };

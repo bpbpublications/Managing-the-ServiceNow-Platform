@@ -1,0 +1,6 @@
+<li class=”gt-menu-item” role=”presentation” ng-if=”data.showCarWashJobs”>
+<a href=”?id=my_car_wash_history” id=”cases_popup” aria-label=”${My Car Wash history}” role=”menuitem”>
+<span ng-bind-html=”’${My Car Wash history}’” aria-hidden=”true”></span>
+<span ng-show=”data.CarWashCount” class=”label label-as-badge label-primary”>{{data.CarWashCount}}</span>
+</a>
+</li>

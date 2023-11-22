@@ -1,0 +1,11 @@
+var activeRequests = new GlideRecord('[app_scope]_car_wash_car_wash_request');
+	var laneArray = [];
+	activeRequests.addEncodedQuery('active=true^sys_id!=' + current.sys_id);
+	activeRequests.query();
+	while(activeRequests.next()){
+	var lane = activeRequests.lane.getDisplayValue();
+	if(laneArray.indexOf(lane)==-1 && lane != ''){
+	laneArray.push(lane);
+	}
+}
+g_scratchpad.busy_lanes_message = 'Lanes ' + laneArray.toString() + ' are currently busy or waiting for other jobs.';

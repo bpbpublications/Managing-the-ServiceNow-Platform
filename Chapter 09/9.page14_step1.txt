@@ -1,0 +1,16 @@
+var activeRequests = new GlideRecord('[carwash app scope]_car_wash_car_wash_request');
+	var carWashJob = current.sys_id;
+	var laneArray = [];
+	//Query all of the car wash request records that are active
+	activeRequests.addEncodedQuery('active=true^sys_id!=' + carWashJob);
+	activeRequests.query();
+	while(activeRequests.next()){
+//Lane values from the car wash requests are added to a newly declared lane variable
+	var lane = activeRequests.lane.getDisplayValue();
+//We add all lanes to an array laneArray - if the lane value already exists then don't add them. If it does, then do add them.
+	if(laneArray.indexOf(lane)==-1 && lane != ''){
+	laneArray.push(lane);
+	}
+}
+//Template.print returns the text to our email notification.
+	template.print('Currently lanes ' + laneArray + ' are busy with other jobs.');

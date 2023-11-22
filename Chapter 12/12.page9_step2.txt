@@ -1,0 +1,24 @@
+var getCustomerDataAJAX = Class.create();
+getCustomerDataAJAX.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+getCarWashRequests: function(){
+
+var customer = this.getParameter('sysparm_customer');
+
+var results = [];
+
+var carWashGR = new GlideRecord('[app_scope]_car_wash_request');
+carWashGR.addEncodedQuery('customer=' + customer);
+carWashGR.query();
+
+while(carWashGR.next()){
+
+results.push(carWashGR.number.toString());
+
+}
+
+return results.toString();
+},
+
+    type: 'getCustomerDataAJAX'
+});

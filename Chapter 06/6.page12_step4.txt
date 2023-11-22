@@ -1,0 +1,8 @@
+	var lane = current.lane.getDisplayValue();	
+	var pendingCarWashRequests = new GlideRecord('[app_scope]_car_wash_request');
+	pendingCarWashRequests.addEncodedQuery('active=true');
+	pendingCarWashRequests.query();	
+	while(pendingCarWashRequests.next()){
+		pendingCarWashRequests.work_notes = 'Car wash job for lane ' + lane + ' has been completed';
+		pendingCarWashRequests.update();
+	}

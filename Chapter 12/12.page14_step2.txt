@@ -1,0 +1,10 @@
+cancelCarWash();
+
+function cancelCarWash(){
+	
+current.state.setValue(7);
+current.work_notes = 'Record has been cancelled by ' + gs.getUserName();
+current.update();
+
+action.setRedirectURL(current);	
+}

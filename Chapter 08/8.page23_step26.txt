@@ -1,0 +1,13 @@
+	var userNameId = gs.getUser().getID();//Get the customer's sys_id
+data.active_jobs = false;//Set data.active_jobs to false by default
+var grCarWash = new GlideRecord('[app_scope]_car_wash_car_wash_request');//Initiate the GlideRecord API on our car wash table
+grCarWash.addEncodedQuery('active=true^customer=' + userNameId);//Query all existing records that are active, where the user in the session is the customer
+grCarWash.orderByDesc('opened_at');//order them descending
+grCarWash.query();
+if(grCarWash.hasNext()){
+//by using the .hasNext method we can see if there are any active records in the query
+	data.active_jobs = true;//Set active_jobs to true if this is correct
+	grCarWash.next();//Point our glideRecord object to the next record - we only need the last one open, not all
+	data.job_status = grCarWash.state.getDisplayValue();//Grab the status of the first job found
+	data.job_number = grCarWash.number.toString();//Grab the number of the car wash record			
+	}

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2023-09-16 22:52:24">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<application_name>Car Wash</application_name>
+<application_scope>x_9053_car_wash</application_scope>
+<application_version>1.0.0</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Chapter 6 Examples - Managing the ServiceNow Platform</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>6379ac1d97157110f4b03341f053af26</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>519491c2979d3510f4b03341f053af69</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_64bc89d597d57110f4b03341f053af8c</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_9053_car_wash_car_wash_request&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="x_9053_car_wash_car_wash_request"&gt;activeCHANGESTOfalse^EQ&lt;item endquery="false" field="active" goto="false" newquery="false" operator="CHANGESTO" or="false" value="false"/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Comment Pending Car Wash Requests&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var lane = current.lane.getDisplayValue();	
+	var pendingCarWashRequests = new GlideRecord('x_9053_car_wash_request');
+	pendingCarWashRequests.addEncodedQuery('active=true');
+	pendingCarWashRequests.query();	
+	while(pendingCarWashRequests.next()){
+		pendingCarWashRequests.work_notes = 'Car wash job for lane ' + lane + ' has been completed';
+		pendingCarWashRequests.update();
+	}
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-14 14:24:19&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;64bc89d597d57110f4b03341f053af8c&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Comment Pending Car Wash Requests&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car Wash" source="x_9053_car_wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car Wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_64bc89d597d57110f4b03341f053af8c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-14 14:25:18&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=64bc89d597d57110f4b03341f053af8c"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1238057016</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>119491c2979d3510f4b03341f053af6a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a9415011a0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table>x_9053_car_wash_car_wash_request</table>
+<target_name>Comment Pending Car Wash Requests</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>ad5d4599e8d57110cdcf922181a2ea20</update_guid>
+<update_guid_history>ad5d4599e8d57110cdcf922181a2ea20:-1238057016,9b1d4959c4d57110c03b5856d581ccba:1394151509</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_scope_privilege_8f8b0dd597d57110f4b03341f053afbe</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege"><sys_scope_privilege action="INSERT_OR_UPDATE"><operation>execute</operation><source_scope display_value="Car Wash">91ecf48d97913110f4b03341f053af62</source_scope><status>allowed</status><sys_class_name>sys_scope_privilege</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-09-14 14:17:29</sys_created_on><sys_id>8f8b0dd597d57110f4b03341f053afbe</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Glide API: user roles and groups</sys_name><sys_package display_value="Car Wash" source="x_9053_car_wash">91ecf48d97913110f4b03341f053af62</sys_package><sys_policy/><sys_scope display_value="Car Wash">91ecf48d97913110f4b03341f053af62</sys_scope><sys_update_name>sys_scope_privilege_8f8b0dd597d57110f4b03341f053afbe</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-09-14 14:17:29</sys_updated_on><target_name>Glide API: user roles and groups</target_name><target_scope display_value="Global">global</target_scope><target_type>scriptable</target_type></sys_scope_privilege></record_update>]]></payload>
+<payload_hash>858729409</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>159491c2979d3510f4b03341f053af69</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a940dd80b0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table/>
+<target_name>Glide API: user roles and groups</target_name>
+<type>Cross scope privilege</type>
+<update_domain>global</update_domain>
+<update_guid>4f8b0dd52fd57110ee71b252e9d78fc0</update_guid>
+<update_guid_history>4f8b0dd52fd57110ee71b252e9d78fc0:858729409</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_b100155d97d57110f4b03341f053af92</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Car wash greeting&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad(){
+	//Display the contents of the "carwash_message attribute" from the g_scratchpad object. The "carwash_message" attribute is populated via a display business rule
+g_form.addInfoMessage(g_scratchpad.carwash_message);
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-14 14:40:20&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;b100155d97d57110f4b03341f053af92&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Car wash greeting&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car Wash" source="x_9053_car_wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car Wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_b100155d97d57110f4b03341f053af92&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-14 14:40:20&lt;/sys_updated_on&gt;&lt;table&gt;x_9053_car_wash_car_wash_request&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>443062763</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>1d9491c2979d3510f4b03341f053af6a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a9422c0a10000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table>x_9053_car_wash_car_wash_request</table>
+<target_name>Car wash greeting</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>adc0155d18d5711058ae2274be3fbf32</update_guid>
+<update_guid_history>adc0155d18d5711058ae2274be3fbf32:443062763</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_4713551197197110f4b03341f053af58</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Show busy lanes&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+ g_form.showFieldMsg('lane',g_scratchpad.busy_lanes_message,'warning');
+   
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-14 14:52:33&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;4713551197197110f4b03341f053af58&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Show busy lanes&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car Wash" source="x_9053_car_wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car Wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_4713551197197110f4b03341f053af58&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-14 14:52:33&lt;/sys_updated_on&gt;&lt;table&gt;x_9053_car_wash_car_wash_request&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1472965506</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>599491c2979d3510f4b03341f053af6a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a942df1a30000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table>x_9053_car_wash_car_wash_request</table>
+<target_name>Show busy lanes</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>7c93d511b81971107d81cb72a98663d6</update_guid>
+<update_guid_history>7c93d511b81971107d81cb72a98663d6:1472965506</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_461e20d597557110f4b03341f053af19</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_9053_car_wash_car_wash_request&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="x_9053_car_wash_car_wash_request"&gt;state=2^EQ&lt;item display_value="Work in Progress" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="2"/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Abort if Car Wash lane is busy&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var laneId = current.lane.sys_id;
+	var currentId = current.sys_id;
+	var WIPCarWashRequests = new GlideRecord('x_9053_car_wash_car_wash_request');
+	WIPCarWashRequests.addEncodedQuery('sys_id!=' + currentId + '^state=2^lane=' + laneId);
+	WIPCarWashRequests.query();
+	if(WIPCarWashRequests.hasNext()){
+		gs.addErrorMessage('This lane is currently in use. Please wait until available');
+		current.setAbortAction(true);	
+	}
+
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-14 12:18:07&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;461e20d597557110f4b03341f053af19&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Abort if Car Wash lane is busy&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car Wash" source="x_9053_car_wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car Wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_461e20d597557110f4b03341f053af19&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-14 12:18:07&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=461e20d597557110f4b03341f053af19"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1065771219</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>5d9491c2979d3510f4b03341f053af69</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a93a08dde0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table>x_9053_car_wash_car_wash_request</table>
+<target_name>Abort if Car Wash lane is busy</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>2a30b459d455711064027d95694e2a61</update_guid>
+<update_guid_history>2a30b459d455711064027d95694e2a61:1065771219</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_a751385997557110f4b03341f053af1d</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;true&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_9053_car_wash_car_wash_request&lt;/collection&gt;&lt;condition&gt;gs.hasRole('x_9053_car_wash.customer') &amp;amp;&amp;amp; !gs.hasRole('admin')&lt;/condition&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Car wash Customer Query&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+var customerId = gs.getUserID();
+current.addEncodedQuery('customer=' + customerId);
+
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-14 14:17:26&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;a751385997557110f4b03341f053af1d&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Car wash Customer Query&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car Wash" source="x_9053_car_wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car Wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_a751385997557110f4b03341f053af1d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-14 14:17:26&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=a751385997557110f4b03341f053af1d"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>275808972</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>959491c2979d3510f4b03341f053af6a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a940dce590000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table>x_9053_car_wash_car_wash_request</table>
+<target_name>Car wash Customer Query</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>ea8b4519ead571108cfe3059cbbaf275</update_guid>
+<update_guid_history>ea8b4519ead571108cfe3059cbbaf275:275808972</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_32b35d5197197110f4b03341f053af8f</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;true&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_9053_car_wash_car_wash_request&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Log car wash requests&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+var userName = gs.getUserDisplayName();
+	gs.info('A car wash request was updated by user: ' + userName);
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-14 14:56:19&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;32b35d5197197110f4b03341f053af8f&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Log car wash requests&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car Wash" source="x_9053_car_wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car Wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_32b35d5197197110f4b03341f053af8f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-14 14:56:19&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;async_always&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=32b35d5197197110f4b03341f053af8f"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1748821280</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>999491c2979d3510f4b03341f053af69</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a943163a40000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table>x_9053_car_wash_car_wash_request</table>
+<target_name>Log car wash requests</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>7364999d6cd57110ac22b6c1022bbb2a</update_guid>
+<update_guid_history>7364999d6cd57110ac22b6c1022bbb2a:1748821280</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_83fd451997d57110f4b03341f053afc5</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_9053_car_wash_car_wash_request&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Get User Name&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var userName = gs.getUserDisplayName();
+	g_scratchpad.carwash_message = 'Hello, ' + userName + '.';
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-14 14:36:54&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;83fd451997d57110f4b03341f053afc5&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Get User Name&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car Wash" source="x_9053_car_wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car Wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_83fd451997d57110f4b03341f053afc5&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-14 14:41:37&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before_display&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=83fd451997d57110f4b03341f053afc5"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>179452232</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>d19491c2979d3510f4b03341f053af6a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a9423efa60000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table>x_9053_car_wash_car_wash_request</table>
+<target_name>Get User Name</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>6411199d2ed571108b814b7ab2a800a2</update_guid>
+<update_guid_history>6411199d2ed571108b814b7ab2a800a2:179452232,a7ff459945d571103d844ebb88819826:-738473700</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Car Wash">91ecf48d97913110f4b03341f053af62</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_0b22199d97d57110f4b03341f053af97</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_9053_car_wash_car_wash_request&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Get Busy Car Wash Lanes&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var activeRequests = new GlideRecord('x_9053_car_wash_car_wash_request');
+	var laneArray = [];
+	activeRequests.addEncodedQuery('active=true^sys_id!=' + current.sys_id);
+	activeRequests.query();
+	while(activeRequests.next()){
+	var lane = activeRequests.lane.getDisplayValue();
+	if(laneArray.indexOf(lane)==-1 &amp;&amp; lane != ''){
+	laneArray.push(lane);
+	}
+}
+g_scratchpad.busy_lanes_message = 'Lanes ' + laneArray.toString() + ' are currently busy or waiting for other jobs.';
+
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-14 14:48:06&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;0b22199d97d57110f4b03341f053af97&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Get Busy Car Wash Lanes&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car Wash" source="x_9053_car_wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car Wash"&gt;91ecf48d97913110f4b03341f053af62&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_0b22199d97d57110f4b03341f053af97&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-14 14:48:06&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before_display&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=0b22199d97d57110f4b03341f053af97"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-224417917</payload_hash>
+<remote_update_set display_value="Chapter 6 Examples - Managing the ServiceNow Platform">519491c2979d3510f4b03341f053af69</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-09-16 22:52:24</sys_created_on>
+<sys_id>d59491c2979d3510f4b03341f053af69</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18a9429e0a70000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-09-16 22:52:24</sys_updated_on>
+<table>x_9053_car_wash_car_wash_request</table>
+<target_name>Get Busy Car Wash Lanes</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>af82999d2ed57110a0a7a9574d392571</update_guid>
+<update_guid_history>af82999d2ed57110a0a7a9574d392571:-224417917</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

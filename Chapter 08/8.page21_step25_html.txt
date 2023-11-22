@@ -1,0 +1,6 @@
+<div>
+  <!-- Grabs the information populated in c.data.user_name and populates it -->
+   Hello {{c.data.user_name}}!!
+</div>
+
+

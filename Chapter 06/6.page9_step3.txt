@@ -1,0 +1,1 @@
+gs.hasRole('[app_scope]_car_wash.customer') && !gs.hasRole('admin')

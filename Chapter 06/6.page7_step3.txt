@@ -1,0 +1,14 @@
+(function executeRule(current, previous /*null when async*/) {
+
+	var laneId = current.lane.sys_id;
+	var currentId = current.sys_id;
+	var WIPCarWashRequests = new GlideRecord('[app_scope]_car_wash_car_wash_request');
+	WIPCarWashRequests.addEncodedQuery('sys_id!=' + currentId + '^state=2^lane=' + laneId);
+	WIPCarWashRequests.query();
+	if(WIPCarWashRequests.hasNext()){
+		gs.addErrorMessage('This lane is currently in use. Please wait until available');
+		current.setAbortAction(true);	
+	}
+
+
+})(current, previous);

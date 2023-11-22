@@ -1,0 +1,2 @@
+var userName = gs.getUserDisplayName();
+gs.info('A car wash request was updated by user: ' + userName);

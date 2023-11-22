@@ -1,0 +1,22 @@
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+var ga = new GlideAjax('getCustomerDataAJAX');
+ga.addParam('sysparm_name', 'getCarWashRequests');
+ ga.addParam('sysparm_customer',g_form.getValue('customer'));
+
+ ga.getXML(getCustomerData);
+
+}
+
+function getCustomerData(response) {
+      var answer = response.responseXML.documentElement.getAttribute("answer");
+	if(answer){
+	g_form.addInfoMessage('Customer historical records: ' + answer);
+	}
+	else{
+		g_form.addInfoMessage('Customer has no historical records');
+	}
+}

@@ -1,0 +1,13 @@
+<div ng-if="data.active_jobs">
+  <!-- If active_jobs is true, then grab c.data.job_number and display to the customer -->
+  We are working on your carwash job #<span style="color:black">{{c.data.job_number}}</span>.
+  <br>
+  <!-- Also grab c.data.job_status from the server script and display it to the customer -->
+  The job is currently in <span style="color:red">{{c.data.job_status}}</span> status.
+  <br>
+  We will provide an update as soon as possible.
+  Thank you!
+</div>
+<div ng-if="!data.active_jobs">
+ No jobs are currently active.     
+</div>

@@ -1,0 +1,3 @@
+
+Hi! Your car wash job ${number} has been assigned to ${assigned_to}.
+${mail_script:GetBusyLanes}.

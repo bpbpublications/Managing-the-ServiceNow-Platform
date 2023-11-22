@@ -1,0 +1,27 @@
+<div>
+<!-- Grabs the information populated in c.data.user_name and populates it -->
+Hello {{c.data.user_name}}!!
+</div>
+<div ng-if="data.active_jobs">
+<!-- If active_jobs is true, then grab c.data.job_number and display to the customer -->
+We are working on your carwash job #<span style="color:black">{{c.data.job_number}}</span>.
+<br>
+<!-- Also grab c.data.job_status from the server script and display it to the customer -->
+The job is currently in <span style="color:red">{{c.data.job_status}}</span> status.
+<br>
+We will provide an update as soon as possible.
+Thank you!
+</div>
+<div ng-if="!data.active_jobs">
+<!-- the form-group class and form-control classes are bootstrap classes that can be leveraged on HTML forms to better structure your HTML form -->
+<div class="form-group">
+<!-- The ng-model directive provides a way of binding data from the form element and pass data so that we can interact with it-->
+<!-- We can call c.data.carwash_notes on the server side by using input.carwash_notes -->
+<input type="text" ng-model="c.data.carwash_notes" class="form-control" placeholder="Add any notes for your carwash here">
+</div>
+ <div>
+<!-- The ng-click directive is used to apply logic when an element is clicked. -->
+<!-- In this case, once we click the button the ng-click directive will call out the c.submit_carwash() function to be executed on our client script -->
+<button type="submit" ng-click="c.submit_carwash()" class="btn btn-primary">Request car wash</button>
+</div>
+</div>

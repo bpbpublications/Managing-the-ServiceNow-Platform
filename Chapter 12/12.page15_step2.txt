@@ -1,0 +1,23 @@
+getCarWashRequests: function(){
+		
+		var customer = this.getParameter('sysparm_customer');
+		
+		var results = [];
+		
+		var carWashGR = new GlideRecord('[app_scope]_car_wash_request');
+		carWashGR.addEncodedQuery('customer=' + customer);
+		carWashGR.query();
+		
+		while (carWashGR.next()){
+			var carWashObj = {};
+			carWashObj.number = carWashGR.number.toString();
+			carWashObj.state = carWashGR.state.toString();
+			carWashObj.car_type = carWashGR.car_type.toString();
+			
+			results.push(carWashObj);
+			
+		}
+		var resultsString = global.JSON.stringify(results);
+			
+		return resultsString;
+	},

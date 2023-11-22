@@ -1,0 +1,4 @@
+var customerId = gs.getUserID();
+current.addEncodedQuery('customer=' + customerId);
+
+

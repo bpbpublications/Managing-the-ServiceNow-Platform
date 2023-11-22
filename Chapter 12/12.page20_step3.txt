@@ -1,0 +1,27 @@
+(function executeRule(current, previous /*null when async*/) {
+
+var pattern = /(?:\d[ -]*){15}\d/g;
+
+var fieldValue = current.getValue('notes');
+
+var matches = fieldValue.match(pattern);
+
+if(matches) {
+
+for (var i=0; i< matches.length; i++){
+var match = matches[i];
+var index = fieldValue.indexOf(match);
+var before = fieldValue.slice(0, index);
+var after = fieldValue.slice(index + match.length);
+
+fieldValue = before + match.replace(/\d/g, '#') + after;
+
+}
+
+current.setValue('notes', fieldValue);
+
+}
+
+
+
+})(current, previous);

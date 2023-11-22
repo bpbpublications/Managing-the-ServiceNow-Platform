@@ -1,0 +1,17 @@
+var existingGR = new GlideRecord('[app_scope]_car_wash_car_wash_request');
+existingGR.addQuery('active','true');
+existingGR.query();
+
+while(existingGR.next()){
+var newGR = new GlideRecord('[app_scope]_car_wash_car_wash_request');
+
+newGR.newRecord();
+newGR.setValue('car_size',existingGR.getValue('car_size'));
+newGR.setValue('car_type',existingGR.getValue('car_type'));
+
+newGR.notes.setValue('Record cloned from ' + existingGR.number);
+newGR.update();
+
+existingGR.setValue('state','4');
+existingGR.update();
+}

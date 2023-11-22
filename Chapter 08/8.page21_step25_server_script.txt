@@ -1,0 +1,6 @@
+(function() {
+	var myUserName = gs.getUser().getDisplayName();//Get the display name of the current user
+	data.user_name = myUserName;//Populate the user name on data.user_name	
+})();
+
+

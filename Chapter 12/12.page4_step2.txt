@@ -1,0 +1,17 @@
+g_form.hideAllFieldMsgs();	
+g_form.setMandatory('car_size',false);
+g_form.setMandatory('car_type',false);
+
+var state = g_form.getValue('state');
+var car_size = g_form.getValue('car_size');
+var car_type = g_form.getValue('car_type');
+
+if(state >= 2 ){
+g_form.setMandatory('car_size',true);
+	g_form.setMandatory('car_type',true);			
+	if(car_size== ''){
+		g_form.showErrorBox('car_size','Car size is required',true);}
+		
+	if(car_type == ''){
+		g_form.showErrorBox('car_type','Car type is required',true);}
+}
